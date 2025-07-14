@@ -14,7 +14,6 @@ With a background in Industrial and Operations Management and experience in both
 
 ## 📁 Project Structure
 ├── index.html # Main portfolio webpage
-
 ├── NgSiEnJennifer-Profile.jpg # Profile image
 └── README.md # Project description (this file)
 
