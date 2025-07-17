@@ -7,301 +7,129 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fdfdfd;
-      --text: #222;
-      --muted: #666;
-      --border: #e0e0e0;
-      --accent: #000;
-      --card-bg: #ffffff;
-      --hover: #333;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+      --bg: #ffffff;
+      --accent: #1a1a1a;
+      --muted: #999;
+      --light: #f7f7f7;
+      --card: #f0f0f0;
     }
 
     body {
+      margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      display: flex;
+      min-height: 100vh;
+      background: var(--light);
+      color: var(--accent);
     }
 
-    header {
-      background-color: var(--card-bg);
-      text-align: center;
-      padding: 3rem 1rem 2rem;
-      border-bottom: 1px solid var(--border);
+    aside {
+      width: 250px;
+      background: var(--accent);
+      color: white;
+      padding: 2rem 1rem;
+      position: fixed;
+      top: 0; bottom: 0;
+      overflow-y: auto;
     }
 
-    .profile-pic {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #fff;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    aside h1 {
+      font-size: 1.6rem;
       margin-bottom: 1rem;
     }
 
-    header h1 {
-      font-size: 2rem;
-      font-weight: 600;
+    aside img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      margin-bottom: 1rem;
     }
 
-    header p {
-      color: var(--muted);
-      margin-top: 0.5rem;
+    aside nav a {
+      display: block;
+      margin: 1rem 0;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    aside nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      margin-left: 250px;
+      padding: 2rem;
+      flex: 1;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+
+    section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 0.6rem;
+    }
+
+    .project-card {
+      border: 1px solid #ddd;
+      border-left: 5px solid var(--accent);
+      background: var(--card);
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
     }
 
     .resume-button {
       display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1.2rem;
-      background: var(--accent);
-      color: #fff;
+      margin: 1rem 0;
+      padding: 0.6rem 1.2rem;
+      background: white;
+      color: var(--accent);
+      font-weight: 600;
+      border: 2px solid var(--accent);
       text-decoration: none;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: background 0.3s ease;
-    }
-
-    .resume-button:hover {
-      background: var(--hover);
-    }
-
-    .social-icons {
-      margin-top: 1rem;
-    }
-
-    .social-icons a {
-      margin: 0 0.4rem;
-      display: inline-block;
-      transition: transform 0.2s ease;
-    }
-
-    .social-icons a:hover {
-      transform: translateY(-3px);
-    }
-
-    .social-icons img {
-      width: 26px;
-      height: 26px;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      padding: 1rem;
-      border-bottom: 1px solid var(--border);
-      background: var(--card-bg);
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      position: relative;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      background-color: var(--accent);
-      bottom: -3px;
-      left: 0;
+      border-radius: 5px;
       transition: 0.3s ease;
     }
 
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    section {
-      max-width: 850px;
-      margin: 2rem auto;
-      background: var(--card-bg);
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-      border: 1px solid var(--border);
-    }
-
-    section h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      border-left: 4px solid var(--accent);
-      padding-left: 0.8rem;
-    }
-
-    section ul {
-      padding-left: 1.2rem;
-      margin-top: 0.5rem;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1.2rem 1.4rem;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.04);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
-    }
-
-    .project-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .project-card p {
-      font-size: 0.95rem;
-      color: var(--muted);
+    .resume-button:hover {
+      background: var(--accent);
+      color: white;
     }
 
     footer {
       text-align: center;
-      padding: 2rem 1rem;
+      margin-top: 3rem;
       font-size: 0.9rem;
       color: var(--muted);
-      border-top: 1px solid var(--border);
-      margin-top: 2rem;
-    }
-
-    a {
-      color: var(--accent);
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.5rem;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <img src="NgSiEnJennifer-Profile.jpg" alt="Ng Si En Jennifer" class="profile-pic">
+<aside>
+  <img src="NgSiEnJennifer-Profile.jpg" alt="Ng Si En Jennifer">
   <h1>Ng Si En Jennifer</h1>
-  <p>Robotics Systems Engineering Student | Admin & Ops Experience</p>
-  <a href="resume.pdf" class="resume-button" target="_blank">📄 Download Resume</a>
-  <div class="social-icons">
-    <a href="https://www.linkedin.com/in/jennifer-ng-si-en/" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" />
-    </a>
-    <a href="https://github.com/ngsienjennifer/Portfolio" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
-    </a>
-  </div>
-</header>
+  <p>Robotics Systems Engineering Student</p>
+  <a class="resume-button" href="resume.pdf" target="_blank">Download Resume</a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</aside>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#education">Education</a>
-  <a href="#experience">Experience</a>
-  <a href="#projects">Projects</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    Hi! I'm Ng Si En Jennifer, a Robotics Systems Engineering student at the Singapore Institute of Technology.
-    With a strong foundation in industrial operations and administrative work, I’ve developed a unique skill set
-    that blends technical learning with practical, real-world experience.
-  </p>
-  <p>
-    My experience spans from backend support and logistics coordination to hands-on customer service roles.
-    This combination of technical curiosity and operations mindset fuels my passion for robotics — not just as a
-    field of study, but as a tool to optimize systems, solve real problems, and improve people’s lives.
-  </p>
-  <p>
-    I'm currently growing my skills in engineering design, systems thinking, and software development, and I’m
-    always open to exploring new ideas, collaboration opportunities, and challenges that help me grow.
-  </p>
-</section>
-
-<section id="education">
-  <h2>Education</h2>
-  <ul>
-    <li><strong>Singapore Institute of Technology</strong> — Robotics Systems Engineering (2024–2028)</li>
-    <li><strong>Republic Polytechnic</strong> — Diploma in Industrial and Operations Management (2020–2023)</li>
-    <li><strong>Greenridge Secondary School</strong> — GCE 'O' Levels (2016–2019)</li>
-  </ul>
-</section>
-
-<section id="experience">
-  <h2>Work Experience</h2>
-  <h3>Fraser and Neave — Temp Admin Assistant</h3>
-  <p><em>Sep 2023 – Dec 2023</em></p>
-  <ul>
-    <li>Verified and filed invoices, supported accurate data entry and audit documentation</li>
-    <li>Processed staff claims and calculated monthly commissions</li>
-    <li>Performed administrative tasks such as scanning, tracking and discrepancy reporting</li>
-  </ul>
-
-  <h3>BedandBasics — Operations Intern</h3>
-  <p><em>Sep 2022 – Jan 2023</em></p>
-  <ul>
-    <li>Handled customer service via calls, live chat, and email</li>
-    <li>Processed orders, managed logistics, and supported showroom retail sales</li>
-    <li>Created product QR code labels and assisted with livestream backend (OBS)</li>
-  </ul>
-</section>
-
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="projects-grid">
-    <div class="project-card">
-      <h3>Systems Engineering Project</h3>
-      <p>
-        Designed and constructed a miniature arena inspired by Changi Airport's Canopy Park to simulate robotic navigation challenges.
-      </p>
-      <p>
-        Applied <strong>SEBoK's 5-step Systems Approach</strong> including need analysis, concept generation, ROS1 integration, and validation.
-      </p>
-      <p>
-        Integrated ROS1 with a LIMO robot to perform autonomous navigation across interconnected arenas.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:jxnn19ng@gmail.com">jxnn19ng@gmail.com</a></p>
-  <p>LinkedIn: <a href="https://www.linkedin.com/in/jennifer-ng-si-en/" target="_blank">linkedin.com/in/jennifer-ng-si-en</a></p>
-</section>
-
-<footer>
-  &copy; 2025 Ng Si En Jennifer. All rights reserved.
-</footer>
-
-</body>
-</html>
+<main>
+  <section id
