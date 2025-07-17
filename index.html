@@ -4,95 +4,77 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ng Si En Jennifer | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #ffffff;
-      --text: #111111;
-      --muted: #666666;
-      --border: #e5e5e5;
-      --accent: #000000;
-      --light-gray: #f9f9f9;
+      --bg: #fdfdfd;
+      --text: #111;
+      --muted: #555;
+      --accent: #000;
+      --card: #fff;
+      --border: #ddd;
+      --hover-bg: #f0f0f0;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
       scroll-behavior: smooth;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--light-gray);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
     header {
-      padding: 4rem 1rem 2rem;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      background: var(--bg);
+      background: linear-gradient(180deg, #f5f5f5 0%, #ffffff 100%);
+      padding: 2rem;
     }
 
-    .hero {
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .profile-pic {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid var(--border);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      margin-bottom: 1rem;
-    }
-
-    .hero h1 {
-      font-size: 2.2rem;
-      margin: 0.5rem 0;
+    header h1 {
+      font-size: 3rem;
       font-weight: 600;
     }
 
-    .hero p {
+    header p {
       color: var(--muted);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
     }
 
-    .resume-button {
-      display: inline-block;
-      margin-top: 1.2rem;
-      padding: 0.5rem 1.3rem;
-      background: var(--text);
-      color: white;
-      border-radius: 6px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .resume-button:hover {
-      background: #333;
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 1.5rem auto;
+      display: block;
+      border: 2px solid var(--border);
     }
 
     nav {
-      display: flex;
-      justify-content: center;
-      gap: 1.8rem;
-      padding: 1rem;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: #fff;
       position: sticky;
       top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
       z-index: 1000;
     }
 
     nav a {
-      text-decoration: none;
       color: var(--text);
+      text-decoration: none;
       font-weight: 500;
       position: relative;
     }
@@ -103,9 +85,9 @@
       width: 0%;
       height: 2px;
       background: var(--text);
-      bottom: -4px;
       left: 0;
-      transition: width 0.3s ease;
+      bottom: 0;
+      transition: 0.3s;
     }
 
     nav a:hover::after {
@@ -113,52 +95,69 @@
     }
 
     main {
-      max-width: 900px;
-      margin: 2rem auto;
+      max-width: 960px;
+      margin: 3rem auto;
       padding: 0 1rem;
     }
 
     section {
-      background: white;
+      margin-bottom: 3rem;
+      background: var(--card);
       padding: 2rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      border-radius: 10px;
       border: 1px solid var(--border);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     section h2 {
-      font-size: 1.4rem;
       margin-bottom: 1rem;
+      font-size: 1.6rem;
       border-left: 4px solid var(--accent);
-      padding-left: 0.6rem;
+      padding-left: 0.75rem;
     }
 
     ul {
-      padding-left: 1.2rem;
+      padding-left: 1.25rem;
     }
 
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
+      margin-top: 1rem;
     }
 
     .project-card {
-      background: var(--light-gray);
+      background: var(--hover-bg);
       border: 1px solid var(--border);
-      padding: 1rem 1.3rem;
       border-radius: 8px;
-      transition: 0.3s ease;
+      padding: 1rem 1.25rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .project-card.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .project-card:hover {
-      background: #f1f1f1;
       transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
     }
 
     .project-card h3 {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
     }
 
     .project-card p {
@@ -166,21 +165,36 @@
       color: var(--muted);
     }
 
+    .resume-button {
+      margin-top: 1rem;
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.5rem 1.3rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .resume-button:hover {
+      background: #222;
+    }
+
     footer {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 2rem;
       font-size: 0.9rem;
       color: var(--muted);
-      background: var(--bg);
     }
 
     a {
-      color: var(--accent);
+      color: var(--text);
     }
 
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 1.6rem;
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
       }
 
       nav {
@@ -193,11 +207,11 @@
 <body>
 
 <header>
-  <div class="hero">
+  <div>
     <img src="NgSiEnJennifer-Profile.jpg" alt="Ng Si En Jennifer" class="profile-pic">
     <h1>Ng Si En Jennifer</h1>
     <p>Robotics Systems Engineering Student | Admin & Ops Experience</p>
-    <a href="resume.pdf" class="resume-button" target="_blank">📄 Download Resume</a>
+    <a href="resume.pdf" class="resume-button" target="_blank">📄 Resume</a>
   </div>
 </header>
 
@@ -212,8 +226,7 @@
 <main>
   <section id="about">
     <h2>About Me</h2>
-    <p>Hi! I'm Ng Si En Jennifer, a Robotics Systems Engineering student at the Singapore Institute of Technology. With a strong foundation in industrial operations and administrative work, I’ve developed a unique skill set that blends technical learning with practical, real-world experience.</p>
-    <p>My experience spans from backend support and logistics coordination to hands-on customer service roles. This combination of technical curiosity and operations mindset fuels my passion for robotics — not just as a field of study, but as a tool to optimize systems, solve real problems, and improve people’s lives.</p>
+    <p>Hi! I'm Ng Si En Jennifer, a Robotics Systems Engineering student at the Singapore Institute of Technology...</p>
   </section>
 
   <section id="education">
@@ -227,18 +240,16 @@
 
   <section id="experience">
     <h2>Work Experience</h2>
-    <h3>Fraser and Neave — Temp Admin Assistant (2023)</h3>
+    <h3>Fraser and Neave — Temp Admin Assistant</h3>
     <ul>
       <li>Verified and filed invoices, supported accurate data entry and audit documentation</li>
       <li>Processed staff claims and calculated monthly commissions</li>
-      <li>Performed scanning and discrepancy reporting</li>
     </ul>
 
-    <h3>BedandBasics — Operations Intern (2022)</h3>
+    <h3>BedandBasics — Operations Intern</h3>
     <ul>
       <li>Handled customer service via calls, live chat, and email</li>
-      <li>Processed orders, logistics, and supported showroom retail sales</li>
-      <li>Created QR labels and assisted with livestream backend (OBS)</li>
+      <li>Created QR labels and supported livestream backend (OBS)</li>
     </ul>
   </section>
 
@@ -247,8 +258,7 @@
     <div class="projects-grid">
       <div class="project-card">
         <h3>Systems Engineering Project</h3>
-        <p>Designed and constructed a miniature arena inspired by Changi Airport's Canopy Park to simulate robotic navigation challenges.</p>
-        <p>Applied <strong>SEBoK's 5-step Systems Approach</strong> and integrated ROS1 with a LIMO robot for autonomous navigation and obstacle handling.</p>
+        <p>Designed and built a miniature arena inspired by Changi Airport's Canopy Park...</p>
       </div>
     </div>
   </section>
@@ -263,6 +273,22 @@
 <footer>
   &copy; 2025 Ng Si En Jennifer. All rights reserved.
 </footer>
+
+<script>
+  // Animate section visibility on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section, .project-card').forEach(el => {
+    observer.observe(el);
+  });
+</script>
 
 </body>
 </html>
