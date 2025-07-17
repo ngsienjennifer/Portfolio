@@ -8,67 +8,67 @@
   <style>
     :root {
       --bg: #ffffff;
-      --text: #111111;
-      --muted: #666;
-      --accent: #000;
-      --border: #e0e0e0;
-      --highlight: #f0f0f0;
+      --primary: #121212;
+      --accent: #007acc;
+      --light-gray: #f0f0f0;
+      --muted: #555;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
       scroll-behavior: smooth;
     }
 
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
+      color: var(--primary);
+      line-height: 1.6;
     }
 
     header {
+      background: linear-gradient(120deg, #e9f0ff, #f7fbff);
       text-align: center;
-      padding: 3rem 1rem 2rem;
-      background: linear-gradient(to bottom, #fff, #f7f7f7);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      padding: 4rem 1rem 2rem;
     }
 
     .profile-pic {
-      width: 130px;
-      height: 130px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid white;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       margin-bottom: 1rem;
     }
 
     header h1 {
-      font-size: 2rem;
-      font-weight: 600;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
     }
 
     header p {
       color: var(--muted);
-      margin-top: 0.5rem;
+      font-size: 1rem;
     }
 
     .resume-button {
       margin-top: 1rem;
-      padding: 0.5rem 1.2rem;
+      display: inline-block;
       background: var(--accent);
       color: white;
-      border-radius: 6px;
+      padding: 0.6rem 1.3rem;
       text-decoration: none;
-      display: inline-block;
+      border-radius: 5px;
+      font-weight: 500;
       transition: background 0.3s ease;
     }
 
     .resume-button:hover {
-      background: #333;
+      background: #005f9a;
     }
 
     .social-icons {
@@ -76,36 +76,35 @@
     }
 
     .social-icons a {
-      margin: 0 0.4rem;
+      margin: 0 0.5rem;
       display: inline-block;
       transition: transform 0.3s ease;
     }
 
     .social-icons a:hover {
-      transform: translateY(-3px);
+      transform: scale(1.1);
     }
 
     .social-icons img {
-      width: 26px;
-      height: 26px;
+      width: 28px;
+      height: 28px;
     }
 
     nav {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: #fff;
+      background: white;
+      border-bottom: 1px solid #eee;
       display: flex;
       justify-content: center;
       gap: 2rem;
-      padding: 1rem;
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+      padding: 0.8rem;
+      z-index: 1000;
     }
 
     nav a {
       text-decoration: none;
-      color: var(--text);
+      color: var(--primary);
       font-weight: 500;
       position: relative;
     }
@@ -115,10 +114,10 @@
       position: absolute;
       height: 2px;
       width: 0%;
-      left: 0;
       bottom: -4px;
+      left: 0;
       background-color: var(--accent);
-      transition: 0.3s ease;
+      transition: 0.3s;
     }
 
     nav a:hover::after {
@@ -129,22 +128,32 @@
       max-width: 900px;
       margin: 3rem auto;
       padding: 2rem;
-      border-radius: 8px;
-      background-color: #fafafa;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeUp 0.6s ease-out forwards;
+      background: var(--light-gray);
+      border-radius: 12px;
+      animation: fadeInUp 1s ease both;
     }
 
-    section h2 {
-      font-size: 1.6rem;
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      font-size: 1.8rem;
       margin-bottom: 1rem;
-      border-left: 4px solid var(--accent);
-      padding-left: 0.75rem;
+      border-left: 5px solid var(--accent);
+      padding-left: 1rem;
     }
 
-    section ul {
+    ul {
       padding-left: 1.2rem;
+      margin-top: 0.5rem;
     }
 
     .projects-grid {
@@ -155,40 +164,32 @@
 
     .project-card {
       background: white;
-      padding: 1.2rem 1.5rem;
+      padding: 1.5rem;
       border-radius: 8px;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.06);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
     }
 
     .project-card h3 {
-      font-size: 1.15rem;
       margin-bottom: 0.5rem;
     }
 
     .project-card p {
-      font-size: 0.95rem;
       color: var(--muted);
+      font-size: 0.95rem;
     }
 
     footer {
       text-align: center;
       padding: 2rem 1rem;
-      font-size: 0.9rem;
       color: var(--muted);
-      border-top: 1px solid var(--border);
-      background: #fff;
+      font-size: 0.9rem;
       margin-top: 3rem;
-    }
-
-    a {
-      color: var(--accent);
     }
 
     @media (max-width: 768px) {
@@ -196,21 +197,10 @@
         flex-wrap: wrap;
         gap: 1rem;
       }
-    }
 
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      header h1 {
+        font-size: 1.7rem;
       }
-    }
-
-    section:nth-child(odd) {
-      animation-delay: 0.2s;
-    }
-
-    section:nth-child(even) {
-      animation-delay: 0.4s;
     }
   </style>
 </head>
@@ -223,10 +213,10 @@
   <a href="resume.pdf" class="resume-button" target="_blank">📄 Download Resume</a>
   <div class="social-icons">
     <a href="https://www.linkedin.com/in/jennifer-ng-si-en/" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" />
     </a>
     <a href="https://github.com/ngsienjennifer/Portfolio" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
     </a>
   </div>
 </header>
@@ -241,28 +231,16 @@
 
 <section id="about">
   <h2>About Me</h2>
-  <p>
-    Hi! I'm Ng Si En Jennifer, a Robotics Systems Engineering student at the Singapore Institute of Technology.
-    With a strong foundation in industrial operations and administrative work, I’ve developed a unique skill set
-    that blends technical learning with practical, real-world experience.
-  </p>
-  <p>
-    My experience spans from backend support and logistics coordination to hands-on customer service roles.
-    This combination of technical curiosity and operations mindset fuels my passion for robotics — not just as a
-    field of study, but as a tool to optimize systems, solve real problems, and improve people’s lives.
-  </p>
-  <p>
-    I'm currently growing my skills in engineering design, systems thinking, and software development, and I’m
-    always open to exploring new ideas, collaboration opportunities, and challenges that help me grow.
-  </p>
+  <p>Hi! I'm Ng Si En Jennifer, a Robotics Systems Engineering student at the Singapore Institute of Technology.</p>
+  <p>I bring a unique blend of technical and operational skills from both engineering studies and practical admin/ops work. I’m passionate about systems thinking and using robotics to solve meaningful problems.</p>
 </section>
 
 <section id="education">
   <h2>Education</h2>
   <ul>
-    <li><strong>Singapore Institute of Technology</strong> — Robotics Systems Engineering (2024–2028)</li>
-    <li><strong>Republic Polytechnic</strong> — Diploma in Industrial and Operations Management (2020–2023)</li>
-    <li><strong>Greenridge Secondary School</strong> — GCE 'O' Levels (2016–2019)</li>
+    <li><strong>SIT</strong> – Robotics Systems Engineering (2024–2028)</li>
+    <li><strong>Republic Polytechnic</strong> – Diploma in Industrial & Operations Management (2020–2023)</li>
+    <li><strong>Greenridge Secondary</strong> – GCE 'O' Levels (2016–2019)</li>
   </ul>
 </section>
 
@@ -271,17 +249,13 @@
   <h3>Fraser and Neave — Temp Admin Assistant</h3>
   <p><em>Sep 2023 – Dec 2023</em></p>
   <ul>
-    <li>Verified and filed invoices, supported accurate data entry and audit documentation</li>
-    <li>Processed staff claims and calculated monthly commissions</li>
-    <li>Performed administrative tasks such as scanning, tracking and discrepancy reporting</li>
+    <li>Processed invoices, staff claims, and performed audit prep</li>
+    <li>Provided backend support for admin and logistics</li>
   </ul>
-
   <h3>BedandBasics — Operations Intern</h3>
   <p><em>Sep 2022 – Jan 2023</em></p>
   <ul>
-    <li>Handled customer service via calls, live chat, and email</li>
-    <li>Processed orders, managed logistics, and supported showroom retail sales</li>
-    <li>Created product QR code labels and assisted with livestream backend (OBS)</li>
+    <li>Handled showroom logistics, backend live support, and e-commerce fulfillment</li>
   </ul>
 </section>
 
@@ -290,11 +264,7 @@
   <div class="projects-grid">
     <div class="project-card">
       <h3>Systems Engineering Project</h3>
-      <p>
-        Designed and constructed a miniature arena inspired by Changi Airport's Canopy Park to simulate robotic navigation challenges.
-        Applied <strong>SEBoK's 5-step Systems Approach</strong> including need analysis, concept generation, ROS1 integration, and validation.
-        Integrated ROS1 with a LIMO robot to perform autonomous navigation across interconnected arenas.
-      </p>
+      <p>Developed an arena simulation inspired by Changi Airport’s Canopy Park to test LIMO robot navigation using ROS1 and a structured SEBoK-based system design approach.</p>
     </div>
   </div>
 </section>
