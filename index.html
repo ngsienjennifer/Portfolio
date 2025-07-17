@@ -1,225 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ng Si En Jennifer | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    /* ===== Global Settings ===== */
     :root {
-      --bg: #fafafa;
-      --nav-bg: #ffffff;
-      --text: #222;
-      --muted: #555;
-      --accent: #1a1a1a;
+      --bg: #f7f7f9;
+      --primary: #222;
+      --secondary: #555;
+      --accent: #1a73e8;
+      --light: #fff;
       --border: #e0e0e0;
-      --highlight: #f0f0f0;
-      --sidebar-width: 260px;
     }
-    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth; }
-    body { font-family:'Inter', sans-serif; color:var(--text); background:var(--bg); }
+    body, * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+    body { font-family: 'Inter', sans-serif; background:var(--bg); color:var(--primary); }
 
-    /* ===== Sidebar Navigation ===== */
-    nav.sidebar {
-      position: fixed;
-      top:0; left:0; bottom:0;
-      width:var(--sidebar-width);
-      background:var(--nav-bg);
-      border-right:1px solid var(--border);
-      padding:2rem 1rem;
-      display:flex; flex-direction:column; align-items:center;
+    /* Hero */
+    .hero {
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; height:100vh; background:var(--light); padding:2rem;
     }
-    nav.sidebar h2 { margin-bottom:2rem; font-size:1.4rem; color:var(--accent); }
-    nav.sidebar a {
-      margin-bottom:1.2rem;
-      text-decoration:none;
-      color:var(--text);
-      width:100%;
-      text-align:left;
-      padding:0.6rem;
-      border-radius:6px;
-      position:relative;
-      font-weight:500;
+    .hero img {
+      width:160px; height:160px; border-radius:50%; margin-bottom:1rem;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
     }
-    nav.sidebar a:hover,
-    nav.sidebar a.active {
-      background:var(--highlight);
-    }
+    .hero h1 { font-weight:600; font-size:2.4rem; margin-bottom:0.4rem; }
+    .hero p { font-size:1.1rem; color:var(--secondary); margin-bottom:1.2rem; }
+    .hero .btn { padding:0.8rem 1.6rem; background:var(--accent); color:#fff;
+                 border:none; border-radius:8px; cursor:pointer; text-decoration:none;
+                 transition:opacity .3s; }
+    .hero .btn:hover { opacity:0.9; }
 
-    /* ===== Main Content ===== */
-    main {
-      margin-left:var(--sidebar-width);
-      padding:2rem 3rem;
+    /* Nav */
+    nav {
+      position:fixed; top:1rem; right:2rem;
+      display:flex; gap:1rem; z-index:10;
     }
+    nav a {
+      color:var(--primary); text-decoration:none; padding:.4rem .8rem;
+      border-radius:4px; transition:background .3s;
+    }
+    nav a:hover, nav a.active { background:rgba(26,115,232,0.1); }
+
+    /* Sections */
     section {
-      max-width:800px;
-      background:#fff;
-      margin-bottom:3rem;
-      border-radius:8px;
-      box-shadow:0 4px 16px rgba(0,0,0,0.05);
-      overflow:hidden;
-      opacity:0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      max-width:720px; margin:0 auto 4rem; padding:2rem; background:var(--light);
+      border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.05);
+      opacity:0; transform:translateY(30px);
+      transition:opacity .6s ease, transform .6s ease;
     }
     section.visible { opacity:1; transform:translateY(0); }
     section h2 {
-      background:var(--accent);
-      color:#fff;
-      margin:0;
-      padding:1rem 1.5rem;
-      font-size:1.5rem;
+      font-size:1.6rem; margin-bottom:1rem; border-left:4px solid var(--accent);
+      padding-left:.8rem;
     }
-    section .content {
-      padding:1.5rem;
-      line-height:1.6;
-      color:var(--muted);
-    }
-    section .content ul { margin-top:0.8rem; padding-left:1.2rem; }
-    section .content ul li { margin-bottom:0.5rem; }
+    section ul { margin-top:1rem; list-style:disc inside; color:var(--secondary); }
+    section h3 { margin-top:1.4rem; color:var(--primary); }
 
-    /* ===== Profile Header ===== */
-    #about .content {
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      text-align:center;
-    }
-    #about .profile-pic {
-      width:130px;
-      height:130px;
-      border-radius:50%;
-      object-fit:cover;
-      border:3px solid white;
-      box-shadow:0 4px 15px rgba(0,0,0,0.1);
-      margin-bottom:1rem;
-    }
-    #about .personal-title {
-      font-weight:600;
-      color:var(--text);
-      margin-bottom:0.7rem;
-    }
-    #about .resume-button {
-      padding:0.6rem 1.3rem;
-      background:var(--accent);
-      color:white;
-      border-radius:6px;
-      text-decoration:none;
-      font-weight:500;
-    }
-    #about .resume-button:hover {
-      opacity:0.9;
-    }
-    #about .social-icons {
-      margin-top:1rem;
-    }
-    #about .social-icons a {
-      margin:0 0.5rem;
-      display:inline-block;
-      transition:transform 0.2s;
-    }
-    #about .social-icons img {
-      width:26px;
-      height:26px;
-    }
-    #about .social-icons a:hover { transform:translateY(-3px); }
-
-    /* ===== Projects Grid ===== */
+    /* Projects */
     .projects-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-      gap:1.4rem;
-      padding:1.2rem;
+      display:grid; gap:1.4rem; grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
     }
     .project-card {
-      background:white;
-      border:1px solid var(--border);
-      border-radius:8px;
-      overflow:hidden;
-      box-shadow:0 6px 20px rgba(0,0,0,0.05);
-      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      background:var(--bg); border:1px solid var(--border);
+      border-radius:8px; overflow:hidden; transition:transform .3s, box-shadow .3s;
     }
-    .project-card:hover {
-      transform:translateY(-6px);
-      box-shadow:0 12px 32px rgba(0,0,0,0.08);
-    }
-    .project-card .proj-content {
-      padding:1.2rem;
-    }
-    .project-card h3 {
-      color:var(--accent);
-      margin-bottom:0.5rem;
-    }
-    .project-card p { color:var(--muted); font-size:0.95rem; }
+    .project-card:hover { transform:translateY(-5px); box-shadow:0 12px 24px rgba(0,0,0,0.08); }
+    .project-card h3 { margin:0; padding:1rem; background:var(--accent); color:#fff; }
+    .project-card p { padding:1rem; color:var(--secondary); font-size:.95rem; }
 
-    /* ===== Skills Section ===== */
-    .skills-toggle {
-      display:flex;
-      justify-content:center;
-      gap:1rem;
-      padding:1rem;
-    }
+    /* Skills */
+    .skills-toggle { text-align:center; margin-bottom:1rem; }
     .skills-toggle button {
-      background:var(--highlight);
-      border:none;
-      padding:0.6rem 1.2rem;
-      border-radius:6px;
-      cursor:pointer;
-      font-weight:500;
-      color:var(--accent);
-      transition:background 0.3s;
+      padding:.6rem 1.2rem; margin:0 .4rem; border:none; background:var(--light);
+      color:var(--accent); font-weight:500; cursor:pointer;
+      transition:background .3s, color .3s;
     }
-    .skills-toggle button.active {
-      background:var(--accent);
-      color:white;
-    }
-    .skill-cards {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-      gap:1rem;
-      padding:1rem;
-      animation:fadeIn 0.5s ease;
+    .skills-toggle button.active { background:var(--accent); color:#fff; }
+    .skill-grid {
+      display:grid; gap:1rem; grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
     }
     .skill-card {
-      background:var(--bg);
-      border:1px solid var(--border);
-      border-radius:6px;
-      text-align:center;
-      padding:0.8rem;
-      font-weight:500;
-      box-shadow:0 4px 15px rgba(0,0,0,0.03);
-      transition:transform 0.3s, box-shadow 0.3s;
+      background:var(--light); border:1px solid var(--border);
+      border-radius:8px; padding:1rem; text-align:center;
+      box-shadow:0 4px 12px rgba(0,0,0,0.04);
+      transition:transform .3s, box-shadow .3s;
     }
-    .skill-card:hover {
-      transform:translateY(-4px);
-      box-shadow:0 12px 24px rgba(0,0,0,0.08);
-    }
+    .skill-card:hover { transform:translateY(-4px); box-shadow:0 12px 24px rgba(0,0,0,0.08); }
 
-    footer {
-      text-align:center;
-      padding:2rem;
-      color:var(--muted);
-      font-size:0.9rem;
-    }
+    /* Footer */
+    footer { text-align:center; padding:2rem; color:var(--secondary); }
 
-    @keyframes fadeIn {
-      from {opacity:0; transform:translateY(15px);}
-      to {opacity:1; transform:translateY(0);}
-    }
-
-    @media (max-width:900px) {
-      nav.sidebar { display:none; }
-      main { margin-left:0; padding:2rem 1rem; }
+    /* Responsive */
+    @media (max-width:768px){
+      .hero h1{ font-size:2rem; }
+      nav { top:.6rem; right:1rem; gap:.6rem; }
+      section { margin:0 1rem 3rem; padding:1.6rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ☰ Sidebar -->
-  <nav class="sidebar">
-    <h2>Ng Si En</h2>
-    <a href="#about" class="active">About</a>
+  <nav>
+    <a href="#about">About</a>
     <a href="#education">Education</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
@@ -227,91 +111,78 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <!-- 📝 Main Content -->
+  <div class="hero">
+    <img src="NgSiEnJennifer-Profile.jpg" alt="Profile Picture">
+    <h1>Ng Si En Jennifer</h1>
+    <p>Robotics Systems Engineering Student | Admin &amp; Ops Experience</p>
+    <a href="resume.pdf" class="btn" target="_blank">📄 Download Resume</a>
+  </div>
+
   <main>
-    <section id="about" class="section visible">
+    <section id="about">
       <h2>About Me</h2>
-      <div class="content">
-        <img src="NgSiEnJennifer-Profile.jpg" alt="" class="profile-pic">
-        <div class="personal-title">Robotics Systems Engineering Student | Admin & Ops Experience</div>
-        <a href="resume.pdf" class="resume-button" target="_blank">📄 Download Resume</a>
-        <div class="social-icons">
-          <a href="#" target="_blank"><img src="linkedin.svg" alt="LinkedIn"></a>
-          <a href="#" target="_blank"><img src="github.svg" alt="GitHub"></a>
-        </div>
-      </div>
+      <p>Hi! I'm Ng Si En Jennifer, a Robotics Systems Engineering student at the Singapore Institute of Technology. With a strong foundation in industrial ops & customer service, I’m passionate about merging real-world systems with robotics solutions.</p>
     </section>
 
-    <section id="education" class="section">
+    <section id="education">
       <h2>Education</h2>
-      <div class="content">
-        <ul>
-          <li><strong>Singapore Institute of Technology</strong> – Robotics Systems Engineering (2024–2028)</li>
-          <li><strong>Republic Polytechnic</strong> – Diploma in Industrial & Ops Management (2020–2023)</li>
-          <li><strong>Greenridge Secondary School</strong> – GCE 'O' Levels (2016–2019)</li>
-        </ul>
-      </div>
+      <ul>
+        <li><strong>SIT</strong> – Robotics Systems Engineering (2024–2028)</li>
+        <li><strong>Republic Polytechnic</strong> – Diploma in Industrial & Operations Management (2020–2023)</li>
+        <li><strong>Greenridge Secondary School</strong> – GCE ’O’ Levels (2016–2019)</li>
+      </ul>
     </section>
 
-    <section id="experience" class="section">
-      <h2>Experience</h2>
-      <div class="content">
-        <h3>Fraser and Neave — Temp Admin Assistant</h3>
-        <ul>
-          <li>Verified and filed invoices, supported accurate data entry and audit documentation</li>
-          <li>Processed staff claims and calculated monthly commissions</li>
-          <li>Performed administrative tasks such as scanning, tracking and discrepancy reporting</li>
-        </ul>
-        <h3>BedandBasics — Operations Intern</h3>
-        <ul>
-          <li>Handled customer service via calls, live chat, and email</li>
-          <li>Processed orders, managed logistics, and supported showroom retail sales</li>
-          <li>Created product QR code labels and assisted with livestream backend (OBS)</li>
-        </ul>
-      </div>
+    <section id="experience">
+      <h2>Work Experience</h2>
+      <h3>Fraser & Neave — Temp Admin Assistant</h3>
+      <ul>
+        <li>Verified invoices & supported accurate data entry</li>
+        <li>Processed staff claims & monthly commissions</li>
+        <li>Performed scanning, tracking & audit documentation</li>
+      </ul>
+      <h3>BedandBasics — Operations Intern</h3>
+      <ul>
+        <li>Handled customer service via calls/chat/email</li>
+        <li>Managed orders, logistics, and showroom support</li>
+        <li>Assisted with livestream backend & QR label creation</li>
+      </ul>
     </section>
 
-    <section id="projects" class="section">
+    <section id="projects">
       <h2>Projects</h2>
-      <div class="projects-grid content">
+      <div class="projects-grid">
         <div class="project-card">
-          <div class="proj-content">
-            <h3>Systems Engineering Project</h3>
-            <p>Designed and constructed a miniature arena inspired by Changi Airport's Canopy Park to simulate robotic navigation challenges.</p>
-            <p>Applied <strong>SEBoK's 5‑step Systems Approach</strong> including need analysis, concept generation, ROS1 integration, and validation.</p>
-            <p>Integrated ROS1 with a LIMO robot to perform autonomous navigation across interconnected arenas.</p>
-          </div>
+          <h3>Systems Engineering Project</h3>
+          <p>Designed a miniature Changi Canopy Park arena to simulate robotic navigation, using SEBoK’s 5‑step Systems Approach and ROS1 on a LIMO robot for autonomous multi‑arena navigation.</p>
         </div>
       </div>
     </section>
 
-    <section id="skills" class="section">
+    <section id="skills">
       <h2>Skills</h2>
       <div class="skills-toggle">
         <button onclick="toggleSkills('tech')" class="active">Technical</button>
         <button onclick="toggleSkills('soft')">Soft</button>
       </div>
-
-      <div id="tech" class="skills-list active skill-cards">
+      <div id="tech" class="skill-grid">
         <div class="skill-card">Python</div>
         <div class="skill-card">C++</div>
         <div class="skill-card">ROS1</div>
         <div class="skill-card">Gazebo</div>
-        <div class="skill-card">Fusion 360</div>
+        <div class="skill-card">Fusion 360</div>
         <div class="skill-card">CAD</div>
         <div class="skill-card">Git</div>
         <div class="skill-card">GitHub</div>
       </div>
-
-      <div id="soft" class="skills-list skill-cards">
+      <div id="soft" class="skill-grid" style="display:none;">
         <div class="skill-card">Team Collaboration</div>
         <div class="skill-card">Communication</div>
         <div class="skill-card">Problem Solving</div>
         <div class="skill-card">Adaptability</div>
       </div>
-
-      <div class="content">
-        <h3>Languages</h3>
+      <div style="margin-top:2rem;">
+        <strong>Languages:</strong>
         <ul>
           <li>English (Fluent)</li>
           <li>Chinese (Conversational)</li>
@@ -320,46 +191,42 @@
       </div>
     </section>
 
-    <section id="contact" class="section">
+    <section id="contact">
       <h2>Contact</h2>
-      <div class="content">
-        <ul>
-          <li>Email: <a href="mailto:jxnn19ng@gmail.com">jxnn19ng@gmail.com</a></li>
-          <li>LinkedIn: <a href="#" target="_blank">linkedin.com/in/jennifer-ng-si-en</a></li>
-        </ul>
-      </div>
+      <ul>
+        <li>Email: <a href="mailto:jxnn19ng@gmail.com">jxnn19ng@gmail.com</a></li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/jennifer-ng-si-en/" target="_blank">linkedin.com/in/jennifer-ng-si-en</a></li>
+      </ul>
     </section>
-
-    <footer>© 2025 Ng Si En Jennifer • All rights reserved.</footer>
   </main>
 
+  <footer>© 2025 Ng Si En Jennifer • All rights reserved.</footer>
+
   <script>
-    // Section scroll-in observer
-    document.querySelectorAll('.section').forEach(s => {
+    // Scroll Animation
+    document.querySelectorAll('section').forEach(sec => {
       new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) e.target.classList.add('visible');
-        });
-      }, {threshold:0.1}).observe(s);
+        entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
+      }, { threshold:0.15 }).observe(sec);
     });
 
-    // Highlight nav link and skill toggler
-    const links = document.querySelectorAll('nav.sidebar a');
+    // Nav Scroll Spy
+    const navLinks = document.querySelectorAll('nav a');
     window.addEventListener('scroll', () => {
-      links.forEach(a => {
-        const sec = document.querySelector(a.getAttribute('href'));
-        if (sec.getBoundingClientRect().top < 100 && sec.getBoundingClientRect().bottom > 100) {
-          links.forEach(l => l.classList.remove('active'));
-          a.classList.add('active');
-        }
+      navLinks.forEach(link => {
+        const sec = document.querySelector(link.hash);
+        if (sec.getBoundingClientRect().top < 120 && sec.getBoundingClientRect().bottom > 120)
+          navLinks.forEach(l => l.classList.remove('active')), link.classList.add('active');
       });
     });
 
+    // Skills Toggle
     function toggleSkills(type) {
-      document.querySelectorAll('.skills-list').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.skills-toggle button').forEach(btn => btn.classList.remove('active'));
-      document.getElementById(type).classList.add('active');
-      document.querySelector(`.skills-toggle button[onclick*="${type}"]`).classList.add('active');
+      document.getElementById('tech').style.display = type === 'tech' ? 'grid' : 'none';
+      document.getElementById('soft').style.display = type === 'soft' ? 'grid' : 'none';
+      document.querySelectorAll('.skills-toggle button').forEach(btn =>
+        btn.textContent.toLowerCase().includes(type) ? btn.classList.add('active') : btn.classList.remove('active')
+      );
     }
   </script>
 </body>
