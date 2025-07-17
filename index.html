@@ -182,6 +182,36 @@
     .skills-list.active {
       display: block;
     }
+
+    .skill-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  animation: fadeIn 0.6s ease;
+}
+
+.skill-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
     
     ul {
       padding-left: 1.2rem;
@@ -334,23 +364,27 @@
 <section class="section" id="skills">
   <h2>Skills</h2>
   <div class="skills-toggle">
-    <button onclick="toggleSkills('tech')" class="active">Technical</button>
-    <button onclick="toggleSkills('soft')">Soft</button>
+    <button onclick="toggleSkills('tech')" class="active">🧠 Technical</button>
+    <button onclick="toggleSkills('soft')">💬 Soft</button>
   </div>
 
-  <ul id="tech" class="skills-list active">
-    <li>Python, C++</li>
-    <li>ROS1, Gazebo</li>
-    <li>Fusion 360, CAD</li>
-    <li>Git, GitHub</li>
-  </ul>
+  <div id="tech" class="skills-list active skill-cards">
+    <div class="skill-card">Python</div>
+    <div class="skill-card">C++</div>
+    <div class="skill-card">ROS1</div>
+    <div class="skill-card">Gazebo</div>
+    <div class="skill-card">Fusion 360</div>
+    <div class="skill-card">CAD</div>
+    <div class="skill-card">Git</div>
+    <div class="skill-card">GitHub</div>
+  </div>
 
-  <ul id="soft" class="skills-list">
-    <li>Team Collaboration</li>
-    <li>Communication</li>
-    <li>Problem Solving</li>
-    <li>Adaptability</li>
-  </ul>
+  <div id="soft" class="skills-list skill-cards">
+    <div class="skill-card">Team Collaboration</div>
+    <div class="skill-card">Communication</div>
+    <div class="skill-card">Problem Solving</div>
+    <div class="skill-card">Adaptability</div>
+  </div>
 
   <h3 style="margin-top: 2rem;">Languages</h3>
   <ul>
