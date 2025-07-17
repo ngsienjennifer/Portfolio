@@ -7,11 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #ffffff;
-      --primary: #121212;
-      --accent: #007acc;
-      --light-gray: #f7f9fc;
-      --muted: #555;
+      --bg: #f8f9fa;
+      --text: #212529;
+      --muted: #6c757d;
+      --border: #dee2e6;
+      --accent: #343a40;
+      --hover: #000;
+      --card: #ffffff;
     }
 
     * {
@@ -24,14 +26,16 @@
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--bg);
-      color: var(--primary);
+      color: var(--text);
       line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(120deg, #e9f0ff, #f7fbff);
       text-align: center;
       padding: 4rem 1rem 2rem;
+      background: var(--card);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      position: relative;
     }
 
     .profile-pic {
@@ -39,36 +43,32 @@
       height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid white;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border: 3px solid #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       margin-bottom: 1rem;
     }
 
     header h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
+      font-size: 2rem;
+      font-weight: 600;
     }
 
     header p {
       color: var(--muted);
-      font-size: 1rem;
     }
 
     .resume-button {
       margin-top: 1rem;
-      display: inline-block;
+      padding: 0.6rem 1.2rem;
       background: var(--accent);
-      color: white;
-      padding: 0.6rem 1.3rem;
+      color: #fff;
       text-decoration: none;
-      border-radius: 5px;
-      font-weight: 500;
-      transition: background 0.3s ease;
+      border-radius: 6px;
+      display: inline-block;
     }
 
     .resume-button:hover {
-      background: #005f9a;
+      background: var(--hover);
     }
 
     .social-icons {
@@ -76,37 +76,35 @@
     }
 
     .social-icons a {
-      margin: 0 0.5rem;
+      margin: 0 0.4rem;
       display: inline-block;
-      transition: transform 0.3s ease;
+      transition: transform 0.2s ease;
     }
 
     .social-icons a:hover {
-      transform: scale(1.1);
+      transform: translateY(-3px);
     }
 
     .social-icons img {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
     }
 
     nav {
-      position: fixed;
+      position: sticky;
       top: 0;
-      width: 100%;
-      background: white;
-      border-bottom: 1px solid #eee;
+      z-index: 1000;
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      padding: 0.8rem 0;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      gap: 1.5rem;
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--card-bg);
     }
 
     nav a {
       text-decoration: none;
-      color: var(--primary);
+      color: var(--text);
       font-weight: 500;
       position: relative;
     }
@@ -119,7 +117,9 @@
       bottom: -4px;
       left: 0;
       background-color: var(--accent);
-      transition: 0.3s;
+      bottom: -3px;
+      left: 0;
+      transition: 0.3s ease;
     }
 
     nav a:hover::after {
@@ -127,14 +127,16 @@
     }
 
     section {
-      max-width: 900px;
-      margin: 4rem auto;
+      max-width: 850px;
+      margin: 2rem auto;
+      background: var(--card-bg);
       padding: 2rem;
-      background: var(--light-gray);
-      border-radius: 12px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      border: 1px solid var(--border);
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.7s ease-out;
+      transform: translateY(40px);
+      animation: fadeInUp 0.8s ease forwards;
     }
 
     section.visible {
