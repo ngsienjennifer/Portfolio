@@ -6,423 +6,361 @@
   <title>Ng Si En Jennifer | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
+    /* ===== Global Settings ===== */
     :root {
-      --bg: #f8f9fa;
-      --text: #212529;
-      --muted: #6c757d;
-      --border: #dee2e6;
-      --accent: #343a40;
-      --hover: #000;
-      --card: #ffffff;
+      --bg: #fafafa;
+      --nav-bg: #ffffff;
+      --text: #222;
+      --muted: #555;
+      --accent: #1a1a1a;
+      --border: #e0e0e0;
+      --highlight: #f0f0f0;
+      --sidebar-width: 260px;
     }
+    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth; }
+    body { font-family:'Inter', sans-serif; color:var(--text); background:var(--bg); }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    header {
-      text-align: center;
-      padding: 4rem 1rem 2rem;
-      background: var(--card);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      position: relative;
-    }
-
-    .profile-pic {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #fff;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      margin-bottom: 1rem;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      font-weight: 600;
-    }
-
-    header p {
-      color: var(--muted);
-    }
-
-    .resume-button {
-      margin-top: 1rem;
-      padding: 0.6rem 1.2rem;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      display: inline-block;
-    }
-
-    .resume-button:hover {
-      background: var(--hover);
-    }
-
-    nav {
+    /* ===== Sidebar Navigation ===== */
+    nav.sidebar {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.9);
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 0.8rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      z-index: 999;
+      top:0; left:0; bottom:0;
+      width:var(--sidebar-width);
+      background:var(--nav-bg);
+      border-right:1px solid var(--border);
+      padding:2rem 1rem;
+      display:flex; flex-direction:column; align-items:center;
+    }
+    nav.sidebar h2 { margin-bottom:2rem; font-size:1.4rem; color:var(--accent); }
+    nav.sidebar a {
+      margin-bottom:1.2rem;
+      text-decoration:none;
+      color:var(--text);
+      width:100%;
+      text-align:left;
+      padding:0.6rem;
+      border-radius:6px;
+      position:relative;
+      font-weight:500;
+    }
+    nav.sidebar a:hover,
+    nav.sidebar a.active {
+      background:var(--highlight);
     }
 
-    nav a {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      position: relative;
+    /* ===== Main Content ===== */
+    main {
+      margin-left:var(--sidebar-width);
+      padding:2rem 3rem;
     }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-    
-    .social-icons {
-      margin-top: 1rem;
-    }
-
-    .social-icons a {
-      margin: 0 0.4rem;
-      display: inline-block;
-      transition: transform 0.2s ease;
-    }
-
-    .social-icons a:hover {
-      transform: translateY(-3px);
-    }
-
-    .social-icons img {
-      width: 26px;
-      height: 26px;
-    }
-
     section {
-      max-width: 900px;
-      margin: 6rem auto 3rem;
-      background: var(--card);
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-      opacity: 0;
+      max-width:800px;
+      background:#fff;
+      margin-bottom:3rem;
+      border-radius:8px;
+      box-shadow:0 4px 16px rgba(0,0,0,0.05);
+      overflow:hidden;
+      opacity:0;
       transform: translateY(30px);
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
+    section.visible { opacity:1; transform:translateY(0); }
+    section h2 {
+      background:var(--accent);
+      color:#fff;
+      margin:0;
+      padding:1rem 1.5rem;
+      font-size:1.5rem;
     }
-
-    h2 {
-      font-size: 1.6rem;
-      border-left: 5px solid var(--accent);
-      padding-left: 0.75rem;
-      margin-bottom: 1rem;
+    section .content {
+      padding:1.5rem;
+      line-height:1.6;
+      color:var(--muted);
     }
+    section .content ul { margin-top:0.8rem; padding-left:1.2rem; }
+    section .content ul li { margin-bottom:0.5rem; }
 
-    .skills-toggle {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
+    /* ===== Profile Header ===== */
+    #about .content {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
     }
-
-    .skills-toggle button {
-      padding: 0.5rem 1rem;
-      border: 1px solid var(--accent);
-      background: none;
-      cursor: pointer;
-      font-weight: 500;
-      border-radius: 6px;
-      transition: 0.3s ease;
+    #about .profile-pic {
+      width:130px;
+      height:130px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid white;
+      box-shadow:0 4px 15px rgba(0,0,0,0.1);
+      margin-bottom:1rem;
     }
-
-    .skills-toggle button.active {
-      background: var(--accent);
-      color: white;
+    #about .personal-title {
+      font-weight:600;
+      color:var(--text);
+      margin-bottom:0.7rem;
     }
-
-    .skills-list {
-      display: none;
-      margin-top: 1rem;
-      list-style: none;
-      padding-left: 1rem;
+    #about .resume-button {
+      padding:0.6rem 1.3rem;
+      background:var(--accent);
+      color:white;
+      border-radius:6px;
+      text-decoration:none;
+      font-weight:500;
     }
-
-    .skills-list.active {
-      display: block;
+    #about .resume-button:hover {
+      opacity:0.9;
     }
-
-    .skill-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-  animation: fadeIn 0.6s ease;
-}
-
-.skill-card {
-  background: #ffffff;
-  border: 1px solid var(--border);
-  padding: 1rem;
-  border-radius: 8px;
-  text-align: center;
-  font-weight: 500;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.skill-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-    
-    ul {
-      padding-left: 1.2rem;
-      margin-top: 0.5rem;
+    #about .social-icons {
+      margin-top:1rem;
     }
+    #about .social-icons a {
+      margin:0 0.5rem;
+      display:inline-block;
+      transition:transform 0.2s;
+    }
+    #about .social-icons img {
+      width:26px;
+      height:26px;
+    }
+    #about .social-icons a:hover { transform:translateY(-3px); }
 
+    /* ===== Projects Grid ===== */
     .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+      gap:1.4rem;
+      padding:1.2rem;
     }
-
     .project-card {
-      margin-top: 1rem;
-      padding: 1rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      background: white;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+      background:white;
+      border:1px solid var(--border);
+      border-radius:8px;
+      overflow:hidden;
+      box-shadow:0 6px 20px rgba(0,0,0,0.05);
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+      transform:translateY(-6px);
+      box-shadow:0 12px 32px rgba(0,0,0,0.08);
     }
-
+    .project-card .proj-content {
+      padding:1.2rem;
+    }
     .project-card h3 {
-      margin-bottom: 0.5rem;
+      color:var(--accent);
+      margin-bottom:0.5rem;
     }
+    .project-card p { color:var(--muted); font-size:0.95rem; }
 
-    .project-card p {
-      color: var(--muted);
-      font-size: 0.95rem;
+    /* ===== Skills Section ===== */
+    .skills-toggle {
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      padding:1rem;
+    }
+    .skills-toggle button {
+      background:var(--highlight);
+      border:none;
+      padding:0.6rem 1.2rem;
+      border-radius:6px;
+      cursor:pointer;
+      font-weight:500;
+      color:var(--accent);
+      transition:background 0.3s;
+    }
+    .skills-toggle button.active {
+      background:var(--accent);
+      color:white;
+    }
+    .skill-cards {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+      gap:1rem;
+      padding:1rem;
+      animation:fadeIn 0.5s ease;
+    }
+    .skill-card {
+      background:var(--bg);
+      border:1px solid var(--border);
+      border-radius:6px;
+      text-align:center;
+      padding:0.8rem;
+      font-weight:500;
+      box-shadow:0 4px 15px rgba(0,0,0,0.03);
+      transition:transform 0.3s, box-shadow 0.3s;
+    }
+    .skill-card:hover {
+      transform:translateY(-4px);
+      box-shadow:0 12px 24px rgba(0,0,0,0.08);
     }
 
     footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-top: 3rem;
+      text-align:center;
+      padding:2rem;
+      color:var(--muted);
+      font-size:0.9rem;
     }
 
-    @media (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
+    @keyframes fadeIn {
+      from {opacity:0; transform:translateY(15px);}
+      to {opacity:1; transform:translateY(0);}
+    }
 
-      header h1 {
-        font-size: 1.7rem;
-      }
-
-      section {
-        margin: 5rem 1rem;
-      }
+    @media (max-width:900px) {
+      nav.sidebar { display:none; }
+      main { margin-left:0; padding:2rem 1rem; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <img src="NgSiEnJennifer-Profile.jpg" alt="Ng Si En Jennifer" class="profile-pic">
-  <h1>Ng Si En Jennifer</h1>
-  <p>Robotics Systems Engineering Student | Admin & Ops Experience</p>
-  <a href="resume.pdf" class="resume-button" target="_blank">📄 Download Resume</a>
-  <div class="social-icons">
-    <a href="https://www.linkedin.com/in/jennifer-ng-si-en/" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" />
-    </a>
-    <a href="https://github.com/ngsienjennifer/Portfolio" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
-    </a>
-  </div>
-</header>
+  <!-- ☰ Sidebar -->
+  <nav class="sidebar">
+    <h2>Ng Si En</h2>
+    <a href="#about" class="active">About</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#education">Education</a>
-  <a href="#experience">Experience</a>
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
-</nav>
+  <!-- 📝 Main Content -->
+  <main>
+    <section id="about" class="section visible">
+      <h2>About Me</h2>
+      <div class="content">
+        <img src="NgSiEnJennifer-Profile.jpg" alt="" class="profile-pic">
+        <div class="personal-title">Robotics Systems Engineering Student | Admin & Ops Experience</div>
+        <a href="resume.pdf" class="resume-button" target="_blank">📄 Download Resume</a>
+        <div class="social-icons">
+          <a href="#" target="_blank"><img src="linkedin.svg" alt="LinkedIn"></a>
+          <a href="#" target="_blank"><img src="github.svg" alt="GitHub"></a>
+        </div>
+      </div>
+    </section>
 
-<section id="about" class="section">
-  <h2>About Me</h2>
-  <p>
-    Hi! I'm Ng Si En Jennifer, a Robotics Systems Engineering student at the Singapore Institute of Technology.
-    With a strong foundation in industrial operations and administrative work, I’ve developed a unique skill set
-    that blends technical learning with practical, real-world experience.
-  </p>
-  <p>
-    My experience spans from backend support and logistics coordination to hands-on customer service roles.
-    This combination of technical curiosity and operations mindset fuels my passion for robotics — not just as a
-    field of study, but as a tool to optimize systems, solve real problems, and improve people’s lives.
-  </p>
-  <p>
-    I'm currently growing my skills in engineering design, systems thinking, and software development, and I’m
-    always open to exploring new ideas, collaboration opportunities, and challenges that help me grow.
-  </p>
-</section>
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <div class="content">
+        <ul>
+          <li><strong>Singapore Institute of Technology</strong> – Robotics Systems Engineering (2024–2028)</li>
+          <li><strong>Republic Polytechnic</strong> – Diploma in Industrial & Ops Management (2020–2023)</li>
+          <li><strong>Greenridge Secondary School</strong> – GCE 'O' Levels (2016–2019)</li>
+        </ul>
+      </div>
+    </section>
 
-<section id="education" class="section">
-  <h2>Education</h2>
-  <ul>
-    <li><strong>SIT</strong> – Robotics Systems Engineering (2024–2028)</li>
-    <li><strong>Republic Polytechnic</strong> – Diploma in Industrial & Operations Management (2020–2023)</li>
-    <li><strong>Greenridge Secondary School</strong> – GCE 'O' Levels (2016–2019)</li>
-  </ul>
-</section>
+    <section id="experience" class="section">
+      <h2>Experience</h2>
+      <div class="content">
+        <h3>Fraser and Neave — Temp Admin Assistant</h3>
+        <ul>
+          <li>Verified and filed invoices, supported accurate data entry and audit documentation</li>
+          <li>Processed staff claims and calculated monthly commissions</li>
+          <li>Performed administrative tasks such as scanning, tracking and discrepancy reporting</li>
+        </ul>
+        <h3>BedandBasics — Operations Intern</h3>
+        <ul>
+          <li>Handled customer service via calls, live chat, and email</li>
+          <li>Processed orders, managed logistics, and supported showroom retail sales</li>
+          <li>Created product QR code labels and assisted with livestream backend (OBS)</li>
+        </ul>
+      </div>
+    </section>
 
-<section id="experience" class="section">
-  <h2>Work Experience</h2>
-  <h3>Fraser and Neave — Temp Admin Assistant</h3>
-  <p><em>Sep 2023 – Dec 2023</em></p>
-  <ul>
-    <li>Verified and filed invoices, supported accurate data entry and audit documentation</li>
-    <li>Processed staff claims and calculated monthly commissions</li>
-    <li>Performed administrative tasks such as scanning, tracking and discrepancy reporting</li>
-  </ul>
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="projects-grid content">
+        <div class="project-card">
+          <div class="proj-content">
+            <h3>Systems Engineering Project</h3>
+            <p>Designed and constructed a miniature arena inspired by Changi Airport's Canopy Park to simulate robotic navigation challenges.</p>
+            <p>Applied <strong>SEBoK's 5‑step Systems Approach</strong> including need analysis, concept generation, ROS1 integration, and validation.</p>
+            <p>Integrated ROS1 with a LIMO robot to perform autonomous navigation across interconnected arenas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <h3>BedandBasics — Operations Intern</h3>
-  <p><em>Sep 2022 – Jan 2023</em></p>
-  <ul>
-    <li>Handled customer service via calls, live chat, and email</li>
-    <li>Processed orders, managed logistics, and supported showroom retail sales</li>
-    <li>Created product QR code labels and assisted with livestream backend (OBS)</li>
-  </ul>
-</section>
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <div class="skills-toggle">
+        <button onclick="toggleSkills('tech')" class="active">Technical</button>
+        <button onclick="toggleSkills('soft')">Soft</button>
+      </div>
 
-<section id="projects" class="section">
-  <h2>Projects</h2>
-  <div class="projects-grid">
-    <div class="project-card">
-      <h3>Systems Engineering Project 1</h3>
-      <p>
-        Designed and constructed a miniature arena inspired by Changi Airport's Canopy Park to simulate robotic navigation challenges.
-      </p>
-      <p>
-        Applied <strong>SEBoK's 5-step Systems Approach</strong> including need analysis, concept generation, ROS1 integration, and validation.
-      </p>
-      <p>
-        Integrated ROS1 with a LIMO robot to perform autonomous navigation across interconnected arenas.
-      </p>
-    </div>
-  </div>
-</section>
+      <div id="tech" class="skills-list active skill-cards">
+        <div class="skill-card">Python</div>
+        <div class="skill-card">C++</div>
+        <div class="skill-card">ROS1</div>
+        <div class="skill-card">Gazebo</div>
+        <div class="skill-card">Fusion 360</div>
+        <div class="skill-card">CAD</div>
+        <div class="skill-card">Git</div>
+        <div class="skill-card">GitHub</div>
+      </div>
 
-<section class="section" id="skills">
-  <h2>Skills</h2>
-  <div class="skills-toggle">
-    <button onclick="toggleSkills('tech')" class="active">🧠 Technical</button>
-    <button onclick="toggleSkills('soft')">💬 Soft</button>
-  </div>
+      <div id="soft" class="skills-list skill-cards">
+        <div class="skill-card">Team Collaboration</div>
+        <div class="skill-card">Communication</div>
+        <div class="skill-card">Problem Solving</div>
+        <div class="skill-card">Adaptability</div>
+      </div>
 
-  <div id="tech" class="skills-list active skill-cards">
-    <div class="skill-card">Python</div>
-    <div class="skill-card">C++</div>
-    <div class="skill-card">ROS1</div>
-    <div class="skill-card">Gazebo</div>
-    <div class="skill-card">Fusion 360</div>
-    <div class="skill-card">CAD</div>
-    <div class="skill-card">Git</div>
-    <div class="skill-card">GitHub</div>
-  </div>
+      <div class="content">
+        <h3>Languages</h3>
+        <ul>
+          <li>English (Fluent)</li>
+          <li>Chinese (Conversational)</li>
+          <li>Tagalog (Basic)</li>
+        </ul>
+      </div>
+    </section>
 
-  <div id="soft" class="skills-list skill-cards">
-    <div class="skill-card">Team Collaboration</div>
-    <div class="skill-card">Communication</div>
-    <div class="skill-card">Problem Solving</div>
-    <div class="skill-card">Adaptability</div>
-  </div>
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="content">
+        <ul>
+          <li>Email: <a href="mailto:jxnn19ng@gmail.com">jxnn19ng@gmail.com</a></li>
+          <li>LinkedIn: <a href="#" target="_blank">linkedin.com/in/jennifer-ng-si-en</a></li>
+        </ul>
+      </div>
+    </section>
 
-  <h3 style="margin-top: 2rem;">Languages</h3>
-  <ul>
-    <li>English (Fluent)</li>
-    <li>Chinese (Conversational)</li>
-    <li>Tagalog (Basic)</li>
-  </ul>
-</section>
+    <footer>© 2025 Ng Si En Jennifer • All rights reserved.</footer>
+  </main>
 
-<section class="section" id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:jxnn19ng@gmail.com">jxnn19ng@gmail.com</a></p>
-  <p>LinkedIn: <a href="https://www.linkedin.com/in/jennifer-ng-si-en/" target="_blank">linkedin.com/in/jennifer-ng-si-en</a></p>
-</section>
-
-
-<footer>
-  &copy; 2025 Ng Si En Jennifer. All rights reserved.
-</footer>
-
-<script>
-  const sections = document.querySelectorAll('.section');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
+  <script>
+    // Section scroll-in observer
+    document.querySelectorAll('.section').forEach(s => {
+      new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add('visible');
+        });
+      }, {threshold:0.1}).observe(s);
     });
-  }, { threshold: 0.1 });
 
-  sections.forEach(section => observer.observe(section));
+    // Highlight nav link and skill toggler
+    const links = document.querySelectorAll('nav.sidebar a');
+    window.addEventListener('scroll', () => {
+      links.forEach(a => {
+        const sec = document.querySelector(a.getAttribute('href'));
+        if (sec.getBoundingClientRect().top < 100 && sec.getBoundingClientRect().bottom > 100) {
+          links.forEach(l => l.classList.remove('active'));
+          a.classList.add('active');
+        }
+      });
+    });
 
-  // Skill toggler
-  function toggleSkills(type) {
-    document.querySelectorAll('.skills-list').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.skills-toggle button').forEach(btn => btn.classList.remove('active'));
-    document.getElementById(type).classList.add('active');
-    document.querySelector(`.skills-toggle button[onclick*="${type}"]`).classList.add('active');
-  }
-</script>
-
+    function toggleSkills(type) {
+      document.querySelectorAll('.skills-list').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.skills-toggle button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(type).classList.add('active');
+      document.querySelector(`.skills-toggle button[onclick*="${type}"]`).classList.add('active');
+    }
+  </script>
 </body>
 </html>
