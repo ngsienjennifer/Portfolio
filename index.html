@@ -71,6 +71,42 @@
       background: var(--hover);
     }
 
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.8rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      z-index: 999;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+    
     .social-icons {
       margin-top: 1rem;
     }
@@ -90,53 +126,16 @@
       height: 26px;
     }
 
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      padding: 1rem;
-      border-bottom: 1px solid var(--border);
-      background: var(--card-bg);
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      position: relative;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      height: 2px;
-      width: 0%;
-      bottom: -4px;
-      left: 0;
-      background-color: var(--accent);
-      bottom: -3px;
-      left: 0;
-      transition: 0.3s ease;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
     section {
-      max-width: 850px;
-      margin: 2rem auto;
-      background: var(--card-bg);
+      max-width: 900px;
+      margin: 6rem auto 3rem;
+      background: var(--card);
       padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
       opacity: 0;
-      transform: translateY(40px);
-      animation: fadeInUp 0.8s ease forwards;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
 
     section.visible {
@@ -145,12 +144,45 @@
     }
 
     h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+      font-size: 1.6rem;
       border-left: 5px solid var(--accent);
+      padding-left: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .skills-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .skills-toggle button {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--accent);
+      background: none;
+      cursor: pointer;
+      font-weight: 500;
+      border-radius: 6px;
+      transition: 0.3s ease;
+    }
+
+    .skills-toggle button.active {
+      background: var(--accent);
+      color: white;
+    }
+
+    .skills-list {
+      display: none;
+      margin-top: 1rem;
+      list-style: none;
       padding-left: 1rem;
     }
 
+    .skills-list.active {
+      display: block;
+    }
+    
     ul {
       padding-left: 1.2rem;
       margin-top: 0.5rem;
@@ -163,11 +195,12 @@
     }
 
     .project-card {
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
       background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.04);
     }
 
     .project-card:hover {
@@ -230,6 +263,7 @@
   <a href="#education">Education</a>
   <a href="#experience">Experience</a>
   <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
   <a href="#contact">Contact</a>
 </nav>
 
@@ -297,34 +331,63 @@
   </div>
 </section>
 
-<section id="contact">
+<section class="section" id="skills">
+  <h2>Skills</h2>
+  <div class="skills-toggle">
+    <button onclick="toggleSkills('tech')" class="active">Technical</button>
+    <button onclick="toggleSkills('soft')">Soft</button>
+  </div>
+
+  <ul id="tech" class="skills-list active">
+    <li>Python, C++</li>
+    <li>ROS1, Gazebo</li>
+    <li>Fusion 360, CAD</li>
+    <li>Git, GitHub</li>
+  </ul>
+
+  <ul id="soft" class="skills-list">
+    <li>Team Collaboration</li>
+    <li>Communication</li>
+    <li>Problem Solving</li>
+    <li>Adaptability</li>
+  </ul>
+
+  <h3 style="margin-top: 2rem;">Languages</h3>
+  <ul>
+    <li>English (Fluent)</li>
+    <li>Chinese (Conversational)</li>
+    <li>Tagalog (Basic)</li>
+  </ul>
+</section>
+
+<section class="section" id="contact">
   <h2>Contact</h2>
   <p>Email: <a href="mailto:jxnn19ng@gmail.com">jxnn19ng@gmail.com</a></p>
   <p>LinkedIn: <a href="https://www.linkedin.com/in/jennifer-ng-si-en/" target="_blank">linkedin.com/in/jennifer-ng-si-en</a></p>
 </section>
+
 
 <footer>
   &copy; 2025 Ng Si En Jennifer. All rights reserved.
 </footer>
 
 <script>
-  const sections = document.querySelectorAll('section');
-
-  const options = {
-    threshold: 0.1
-  };
-
+  const sections = document.querySelectorAll('.section');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
-  }, options);
+  }, { threshold: 0.1 });
 
-  sections.forEach(section => {
-    observer.observe(section);
-  });
+  sections.forEach(section => observer.observe(section));
+
+  // Skill toggler
+  function toggleSkills(type) {
+    document.querySelectorAll('.skills-list').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.skills-toggle button').forEach(btn => btn.classList.remove('active'));
+    document.getElementById(type).classList.add('active');
+    document.querySelector(`.skills-toggle button[onclick*="${type}"]`).classList.add('active');
+  }
 </script>
 
 </body>
