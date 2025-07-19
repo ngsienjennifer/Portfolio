@@ -5,7 +5,7 @@ import {illustration, contactInfo} from "../../portfolio";
 import {Fade} from "react-reveal";
 /*import email from "../../assets/lottie/email";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie"; */
-import profileImage from "../../assets/images/NgSiEnJenniferProfile.png";
+import profileImage from "../../assets/images/NgSiEnJenniferProfile.jpg";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function Contact() {
