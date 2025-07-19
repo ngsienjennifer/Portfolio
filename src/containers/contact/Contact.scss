@@ -8,8 +8,11 @@
   color: $textColorDark;
 }
 
-.contact-div-main > * {
-  flex: 1;
+.contact-div-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .contact-title {
@@ -46,10 +49,13 @@
 }
 
 .contact-image-div > img {
-  max-width: 100%;
-  height: auto;
-  margin-left: 1.5rem;
-  margin-top: -4rem;
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: 2rem;
+  margin-top: 1rem;
 }
 
 /* Media Query */
@@ -82,6 +88,11 @@
   }
 
   .contact-image-div {
-    display: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+    .contact-image-div > img {
+    margin: 0;
   }
 }
