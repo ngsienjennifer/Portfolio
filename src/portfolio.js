@@ -355,7 +355,6 @@ const contactInfo = {
     "Discuss a project or just want to say hi? My Inbox is open for all.",
   number: "+65 82237746",
   email_address: "jxnn19ng@gmail.com",
-  display: true
 };
 
 // Twitter Section
