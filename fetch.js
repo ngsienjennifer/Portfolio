@@ -121,10 +121,15 @@ if (MEDIUM_USERNAME !== undefined) {
       mediumData += d;
     });
     res.on("end", () => {
-      fs.writeFile("./public/blogs.json", mediumData, function (err) {
-        if (err) return console.log(err);
-        console.log("saved file to public/blogs.json");
-      });
+      try {
+        const parsed = JSON.parse(data);
+        fs.writeFile("./public/profile.json", JSON.stringify(parsed, null, 2), function (err) {
+          if (err) return console.log(err);
+          console.log("Saved structured profile.json to public/profile.json");
+        });
+      } catch (error) {
+        console.error("Failed to parse GitHub API response:", error.message);
+      }
     });
   });
 
