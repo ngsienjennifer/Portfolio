@@ -8,12 +8,6 @@ const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
 const USE_GITHUB_DATA = process.env.USE_GITHUB_DATA;
 const MEDIUM_USERNAME = process.env.MEDIUM_USERNAME;
 
-console.log("ENV:", {
-  GITHUB_TOKEN: GITHUB_TOKEN?.substring(0, 4) + "...",
-  GITHUB_USERNAME,
-  USE_GITHUB_DATA,
-});
-
 const ERR = {
   noUserName:
     "Github Username was found to be undefined. Please set all relevant environment variables.",
@@ -31,7 +25,7 @@ if (USE_GITHUB_DATA === "true") {
   var data = JSON.stringify({
     query: `
 {
-  user(login:"ngsienjennifer") { 
+  user(login:"${GITHUB_USERNAME}") { 
     name
     bio
     avatarUrl
@@ -121,15 +115,10 @@ if (MEDIUM_USERNAME !== undefined) {
       mediumData += d;
     });
     res.on("end", () => {
-      try {
-        const parsed = JSON.parse(data);
-        fs.writeFile("./public/profile.json", JSON.stringify(parsed, null, 2), function (err) {
-          if (err) return console.log(err);
-          console.log("Saved structured profile.json to public/profile.json");
-        });
-      } catch (error) {
-        console.error("Failed to parse GitHub API response:", error.message);
-      }
+      fs.writeFile("./public/blogs.json", mediumData, function (err) {
+        if (err) return console.log(err);
+        console.log("saved file to public/blogs.json");
+      });
     });
   });
 
