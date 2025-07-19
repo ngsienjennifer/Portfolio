@@ -5,6 +5,7 @@ import {illustration, contactInfo} from "../../portfolio";
 import {Fade} from "react-reveal";
 /*import email from "../../assets/lottie/email";
 import DisplayLottie from "../../components/displayLottie/DisplayLottie"; */
+import profileImage from "../../assets/images/NgSiEnJenniferProfile.png";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function Contact() {
@@ -56,19 +57,13 @@ export default function Contact() {
             {illustration.animated ? (
               // <DisplayLottie animationData={email} />
               <img
-                src=""
-                onLoad={async (e) => {
-                  const res = await fetch("/profile.json");
-                  const json = await res.json();
-                  const userObj = JSON.parse(json.data.user);
-                  e.target.src = userObj.avatarUrl;
-                }}
+                src={profileImage}
                 alt="Profile"
                 className="profile-picture"
                 style={{
                   borderRadius: "50%",
-                  width: "150px",
-                  height: "150px",
+                  width: "70px",
+                  height: "70px",
                   objectFit: "cover",
                 }}
               />   
