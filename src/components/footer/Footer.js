@@ -12,14 +12,6 @@ export default function Footer() {
         <p className={isDark ? "dark-mode footer-text" : "footer-text"}>
           {("© 2025 Ng Si En Jennifer — All rights reserved")}
         </p>
-        <p className={isDark ? "dark-mode footer-text" : "footer-text"}>
-          Theme by{" "}
-          <a
-            href="https://github.com/ngsienjennifer/Portfolio"
-            target="_blank"
-            rel="noreferrer"
-          >
-            developerFolio
           </a>
         </p>
       </div>
