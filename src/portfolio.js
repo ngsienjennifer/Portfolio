@@ -211,7 +211,7 @@ const bigProjects = {
         },
         {
           name: "View Project Code",
-          url: "https://github.com/ngsienjennifer/Portfolio", // replace with git next time
+          url: "https://github.com/YongJiee/Systems-Engineering-Project-1-Group-6.git", // replace with git next time
         },
         {
           name: "About the Project (PDF)",
