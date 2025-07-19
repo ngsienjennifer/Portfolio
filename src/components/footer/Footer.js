@@ -11,6 +11,16 @@ export default function Footer() {
         <p className={isDark ? "dark-mode footer-text" : "footer-text"}>
           {("© 2025 Ng Si En Jennifer — All rights reserved")}
         </p>
+        <p className={isDark ? "dark-mode footer-text" : "footer-text"}>
+          Template by{" "}
+          <a
+            href="https://github.com/saadpasta/developerFolio"
+            target="_blank"
+            rel="noreferrer"
+          >
+            developerFolio
+          </a>
+        </p>
       </div>
     </Fade>
   );
