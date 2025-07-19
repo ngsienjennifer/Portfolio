@@ -25,7 +25,7 @@ if (USE_GITHUB_DATA === "true") {
   var data = JSON.stringify({
     query: `
 {
-  user(login:"${GITHUB_USERNAME}") { 
+  user(login:"ngsienjennifer") { 
     name
     bio
     avatarUrl
