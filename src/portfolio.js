@@ -190,39 +190,35 @@ const workExperiences = {
 To know how to get github key look at readme.md */
 
 const openSource = {
-  showGithubProfile: "true", // Set true or false to show Contact profile using Github, defaults to true
-  display: true // Set false to hide this section, defaults to true
+  showGithubProfile: "false", // Set true or false to show Contact profile using Github, defaults to true
+  display: false // Set false to hide this section, defaults to true
 };
 
 // Some big projects you have worked on
 
 const bigProjects = {
-  title: "Big Projects",
-  subtitle: "SOME STARTUPS AND COMPANIES THAT I HELPED TO CREATE THEIR TECH",
+  title: "Key Projects",
+  subtitle: "MAJOR PROJECTS REFLECTING MY TECHNICAL AND ENGINEERING GROWTH",
   projects: [
     {
-      image: require("./assets/images/saayaHealthLogo.webp"),
-      projectName: "Saayahealth",
-      projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      image: require("./assets/images/SEP1_Arena.png"),
+      projectName: "Systems Engineering Project 1",
+      projectDesc: "Developed a miniature arena inspired by Changi Airport's Canopy Park to simulate complex navigation tasks. Applied SEBoK's Systems Approach methodology to define stakeholder needs, conceptualize the system, and implement ROS1-based control. Integrated a LIMO robot for autonomous path planning and execution across segmented zones.",
       footerLink: [
         {
-          name: "Visit Website",
-          url: "http://saayahealth.com/"
-        }
-        //  you can add extra buttons here.
-      ]
+          name: "Watch Demo Video",
+          url: "assets/videos/SEP1_LimoDemo.mp4",
+        },
+        {
+          name: "View Project Code",
+          url: "https://github.com/ngsienjennifer/Portfolio", // replace with git next time
+        },
+        {
+          name: "About the Project (PDF)",
+          url: "assets/docs/SEP1_Overview.pdf", 
+        },
+      ],
     },
-    {
-      image: require("./assets/images/nextuLogo.webp"),
-      projectName: "Nextu",
-      projectDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      footerLink: [
-        {
-          name: "Visit Website",
-          url: "http://nextu.se/"
-        }
-      ]
-    }
   ],
   display: true // Set false to hide this section, defaults to true
 };
