@@ -60,17 +60,18 @@ export default function Contact() {
                 onLoad={async (e) => {
                   const res = await fetch("/profile.json");
                   const json = await res.json();
-                  e.target.src = json.data.user.avatarUrl;
+                  const userObj = JSON.parse(json.data.user);
+                  e.target.src = userObj.avatarUrl;
                 }}
                 alt="Profile"
                 className="profile-picture"
                 style={{
                   borderRadius: "50%",
-                  width: "200px",
-                  height: "200px",
+                  width: "150px",
+                  height: "150px",
                   objectFit: "cover",
                 }}
-              />     
+              />   
             ) : (
               <img
                 alt="Man working"
