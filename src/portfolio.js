@@ -45,15 +45,12 @@ const socialMediaLinks = {
 
 const skillsSection = {
   title: "What I do",
-  subTitle: "CRAZY FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK",
+  subTitle: "Robotics Systems Engineering student exploring technology and automation with operations and admin experience",
   skills: [
-    emoji(
-      "⚡ Develop highly interactive Front end / User Interfaces for your web and mobile applications"
-    ),
-    emoji("⚡ Progressive Web Applications ( PWA ) in normal and SPA Stacks"),
-    emoji(
-      "⚡ Integration of third party services such as Firebase/ AWS / Digital Ocean"
-    )
+    emoji("🤖") + " Currently studying robotics systems to understand automation and system integration",
+    emoji("📊") + " Skilled in operations, administration, logistics and project support",
+    emoji("💻") + " Familiar with C/C++, web development tools, and microcontroller environments (STM32)",
+    emoji("🎨") + " Experienced with tools like Canva, Tableau, Minitab, and AutoCAD"
   ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
@@ -61,56 +58,40 @@ https://fontawesome.com/icons?d=gallery */
 
   softwareSkills: [
     {
-      skillName: "html-5",
-      fontAwesomeClassname: "fab fa-html5"
+      skillName: "C",
+      fontAwesomeClassname: "fas fa-code"
     },
     {
-      skillName: "css3",
-      fontAwesomeClassname: "fab fa-css3-alt"
+      skillName: "C++",
+      fontAwesomeClassname: "fas fa-code"
     },
     {
-      skillName: "sass",
-      fontAwesomeClassname: "fab fa-sass"
+      skillName: "STM32Cube",
+      fontAwesomeClassname: "fas fa-microchip"
     },
     {
-      skillName: "JavaScript",
-      fontAwesomeClassname: "fab fa-js"
+      skillName: "AutoCAD",
+      fontAwesomeClassname: "fas fa-drafting-compass"
     },
     {
-      skillName: "reactjs",
-      fontAwesomeClassname: "fab fa-react"
+      skillName: "Tableau",
+      fontAwesomeClassname: "fas fa-chart-bar"
     },
     {
-      skillName: "nodejs",
-      fontAwesomeClassname: "fab fa-node"
+      skillName: "Microsoft Office",
+      fontAwesomeClassname: "fab fa-microsoft"
     },
     {
-      skillName: "swift",
-      fontAwesomeClassname: "fab fa-swift"
+      skillName: "Magento",
+      fontAwesomeClassname: "fab fa-magento"
     },
     {
-      skillName: "npm",
-      fontAwesomeClassname: "fab fa-npm"
+      skillName: "Canva",
+      fontAwesomeClassname: "fas fa-paint-brush"
     },
     {
-      skillName: "sql-database",
-      fontAwesomeClassname: "fas fa-database"
-    },
-    {
-      skillName: "aws",
-      fontAwesomeClassname: "fab fa-aws"
-    },
-    {
-      skillName: "firebase",
-      fontAwesomeClassname: "fas fa-fire"
-    },
-    {
-      skillName: "python",
-      fontAwesomeClassname: "fab fa-python"
-    },
-    {
-      skillName: "docker",
-      fontAwesomeClassname: "fab fa-docker"
+      skillName: "GitHub",
+      fontAwesomeClassname: "fab fa-github"
     }
   ],
   display: true // Set false to hide this section, defaults to true
@@ -122,23 +103,32 @@ const educationInfo = {
   display: true, // Set false to hide this section, defaults to true
   schools: [
     {
-      schoolName: "Harvard University",
-      logo: require("./assets/images/harvardLogo.png"),
-      subHeader: "Master of Science in Computer Science",
-      duration: "September 2017 - April 2019",
-      desc: "Participated in the research of XXX and published 3 papers.",
+      schoolName: "Singapore Institute of Technology",
+      logo: require("./assets/images/SITLogo.png"),
+      subHeader: "Bachelor of Engineering in Robotics Systems Engineering",
+      duration: "September 2024 – Present",
+      desc: "Pursuing a degree focused on robotics, automation, systems engineering, and programming.",
       descBullets: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        "Working on projects involving ROS and autonomous navigation using LIMO robot",
+        "Learning systems engineering approaches to apply in real-world problems"
       ]
     },
     {
-      schoolName: "Stanford University",
-      logo: require("./assets/images/stanfordLogo.png"),
-      subHeader: "Bachelor of Science in Computer Science",
-      duration: "September 2013 - April 2017",
-      desc: "Ranked top 10% in the program. Took courses about Software Engineering, Web Security, Operating Systems, ...",
-      descBullets: ["Lorem ipsum dolor sit amet, consectetur adipiscing elit"]
+      schoolName: "Republic Polytechnic",
+      logo: require("./assets/images/RPLogo.png"),
+      subHeader: "Diploma in Industrial and Operations Management",
+      duration: "April 2020 – April 2023",
+      desc: "Graduated with a foundation in operations planning, analytics, and project management.",
+      descBullets: [
+        "Learned tools like Tableau, AutoCAD, Minitab, and Microsoft Excel for process improvement",
+        "Completed industry-based internship in operations and customer support"
+      ]
+    },
+    {
+      schoolName: "Greenridge Secondary School",
+      logo: require("./assets/images/GRSSLogo.png"),
+      subHeader: "GCE 'O' Levels",
+      duration: "January 2016 – December 2019",
     }
   ]
 };
@@ -149,16 +139,16 @@ const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
   experience: [
     {
-      Stack: "Frontend/Design", //Insert stack or technology you have experience in
+      Stack: "English", //Insert stack or technology you have experience in
       progressPercentage: "90%" //Insert relative proficiency in percentage
     },
     {
-      Stack: "Backend",
+      Stack: "Mandarin Chinese",
       progressPercentage: "70%"
     },
     {
-      Stack: "Programming",
-      progressPercentage: "60%"
+      Stack: "Tagalog",
+      progressPercentage: "65%"
     }
   ],
   displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
@@ -170,29 +160,28 @@ const workExperiences = {
   display: true, //Set it to true to show workExperiences Section
   experience: [
     {
-      role: "Software Engineer",
-      company: "Facebook",
-      companylogo: require("./assets/images/facebookLogo.png"),
-      date: "June 2018 – Present",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      role: "Temp Admin Assistant",
+      company: "Fraser and Neave",
+      companylogo: require("./assets/images/FNlogo.png"),
+      date: "Sep 2023 – Dec 2023",
+      desc: "Provided backend operations support in a fast-paced consumer goods company.",
       descBullets: [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        "Verified and filed invoices for accuracy and audit compliance",
+        "Processed staff claims and calculated monthly commissions",
+        "Managed scanning, data entry, discrepancy tracking and reporting"
       ]
     },
     {
-      role: "Front-End Developer",
-      company: "Quora",
-      companylogo: require("./assets/images/quoraLogo.png"),
-      date: "May 2017 – May 2018",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    },
-    {
-      role: "Software Engineer Intern",
-      company: "Airbnb",
-      companylogo: require("./assets/images/airbnbLogo.png"),
-      date: "Jan 2015 – Sep 2015",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      role: "Operations Intern",
+      company: "BedandBasics",
+      companylogo: require("./assets/images/BnBLogo.png"),
+      date: "Sep 2022 – Jan 2023",
+      desc: "Supported logistics, customer service, and marketing at a home furnishing startup.",
+      descBullets: [
+        "Handled customer inquiries via calls, emails and live chat",
+        "Processed online orders and supported logistics coordination",
+        "Assisted in showroom sales, created QR labels, and ran backend livestream setups using OBS"
+      ]
     }
   ]
 };
@@ -251,7 +240,7 @@ const achievementSection = {
       title: "Google Code-In Finalist",
       subtitle:
         "First Pakistani to be selected as Google Code-in Finalist from 4000 students from 77 different countries.",
-      image: require("./assets/images/codeInLogo.webp"),
+      image: require("./assets/images/SITLogo.png"),
       imageAlt: "Google Code-In Logo",
       footerLink: [
         {
@@ -272,7 +261,7 @@ const achievementSection = {
       title: "Google Assistant Action",
       subtitle:
         "Developed a Google Assistant Action JavaScript Guru that is available on 2 Billion devices world wide.",
-      image: require("./assets/images/googleAssistantLogo.webp"),
+      image: require("./assets/images/SITLogo.png"),
       imageAlt: "Google Assistant Action Logo",
       footerLink: [
         {
@@ -285,7 +274,7 @@ const achievementSection = {
     {
       title: "PWA Web App Developer",
       subtitle: "Completed Certifcation from SMIT for PWA Web App Development",
-      image: require("./assets/images/pwaLogo.webp"),
+      image: require("./assets/images/SITLogo.png"),
       imageAlt: "PWA Logo",
       footerLink: [
         {name: "Certification", url: ""},
@@ -305,7 +294,7 @@ const blogSection = {
   title: "Blogs",
   subtitle:
     "With Love for Developing cool stuff, I love to write and teach others what I have learnt.",
-  displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
+  displayMediumBlogs: "false", // Set true to display fetched medium blogs instead of hardcoded ones
   blogs: [
     {
       url: "https://blog.usejournal.com/create-a-google-assistant-action-and-win-a-google-t-shirt-and-cloud-credits-4a8d86d76eae",
@@ -352,7 +341,7 @@ const podcastSection = {
   podcast: [
     "https://anchor.fm/codevcast/embed/episodes/DevStory---Saad-Pasta-from-Karachi--Pakistan-e9givv/a-a15itvo"
   ],
-  display: true // Set false to hide this section, defaults to true
+  display: false // Set false to hide this section, defaults to true
 };
 
 // Resume Section
@@ -369,7 +358,8 @@ const contactInfo = {
   subtitle:
     "Discuss a project or just want to say hi? My Inbox is open for all.",
   number: "+65 82237746",
-  email_address: "jxnn19ng@gmail.com"
+  email_address: "jxnn19ng@gmail.com",
+  display: true
 };
 
 // Twitter Section
