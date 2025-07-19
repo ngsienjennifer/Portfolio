@@ -1,233 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ng Si En Jennifer | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f7f7f9;
-      --primary: #222;
-      --secondary: #555;
-      --accent: #1a73e8;
-      --light: #fff;
-      --border: #e0e0e0;
-    }
-    body, * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
-    body { font-family: 'Inter', sans-serif; background:var(--bg); color:var(--primary); }
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    /* Hero */
-    .hero {
-      display:flex; flex-direction:column; align-items:center; justify-content:center;
-      text-align:center; height:100vh; background:var(--light); padding:2rem;
-    }
-    .hero img {
-      width:160px; height:160px; border-radius:50%; margin-bottom:1rem;
-      box-shadow:0 8px 20px rgba(0,0,0,0.1);
-    }
-    .hero h1 { font-weight:600; font-size:2.4rem; margin-bottom:0.4rem; }
-    .hero p { font-size:1.1rem; color:var(--secondary); margin-bottom:1.2rem; }
-    .hero .btn { padding:0.8rem 1.6rem; background:var(--accent); color:#fff;
-                 border:none; border-radius:8px; cursor:pointer; text-decoration:none;
-                 transition:opacity .3s; }
-    .hero .btn:hover { opacity:0.9; }
+    <!-- Edit meta tags for SEO -->
+    <title>DeveloperFolio | Developer Portfolio Template</title>
+    <meta name="title" content="DeveloperFolio | Developer Portfolio Template">
+    <meta name="description" content="Software Developer Portfolio Template that helps you showcase your work and skills as a software developer">
 
-    /* Nav */
-    nav {
-      position:fixed; top:1rem; right:2rem;
-      display:flex; gap:1rem; z-index:10;
-    }
-    nav a {
-      color:var(--primary); text-decoration:none; padding:.4rem .8rem;
-      border-radius:4px; transition:background .3s;
-    }
-    nav a:hover, nav a.active { background:rgba(26,115,232,0.1); }
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://developerfolio.js.org/">
+    <meta property="og:title" content="DeveloperFolio | Developer Portfolio Template">
+    <meta property="og:description" content="Software Developer Portfolio Template that helps you showcase your work and skills as a software developer">
+    <!-- Link to a hosted image -->
+    <!-- <meta property="og:image" content=""> -->
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://developerfolio.js.org/">
+    <meta property="twitter:title" content="DeveloperFolio | Developer Portfolio Template">
+    <meta property="twitter:description" content="Software Developer Portfolio Template that helps you showcase your work and skills as a software developer">
+    <!-- Link to a hosted image -->
+    <!-- <meta property="twitter:image" content=""> -->
 
-    /* Sections */
-    section {
-      max-width:720px; margin:0 auto 4rem; padding:2rem; background:var(--light);
-      border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.05);
-      opacity:0; transform:translateY(30px);
-      transition:opacity .6s ease, transform .6s ease;
-    }
-    section.visible { opacity:1; transform:translateY(0); }
-    section h2 {
-      font-size:1.6rem; margin-bottom:1rem; border-left:4px solid var(--accent);
-      padding-left:.8rem;
-    }
-    section ul { margin-top:1rem; list-style:disc inside; color:var(--secondary); }
-    section h3 { margin-top:1.4rem; color:var(--primary); }
+    <meta name="msapplication-TileColor" content="#603cba">
+    <meta name="theme-color" content="#6c63ff" />
 
-    /* Projects */
-    .projects-grid {
-      display:grid; gap:1.4rem; grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-    }
-    .project-card {
-      background:var(--bg); border:1px solid var(--border);
-      border-radius:8px; overflow:hidden; transition:transform .3s, box-shadow .3s;
-    }
-    .project-card:hover { transform:translateY(-5px); box-shadow:0 12px 24px rgba(0,0,0,0.08); }
-    .project-card h3 { margin:0; padding:1rem; background:var(--accent); color:#fff; }
-    .project-card p { padding:1rem; color:var(--secondary); font-size:.95rem; }
+    <!-- Customize icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png?v8=qAJ44G5Bm7">
+    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png?v8=qAJ44G5Bm7">
+    <link rel="mask-icon" href="%PUBLIC_URL%/safari-pinned-tab.svg?v8=qAJ44G5Bm7" color="#885bd5">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico?v8=qAJ44G5Bm7">
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png?v8=qAJ44G5Bm7">
+	  <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <link rel=preload href="/static/media/Montserrat-Regular.ee653992.ttf" as="font" type="font/woff" crossorigin>
+    <link rel=preload href="/static/media/Agustina.21f233e1.woff" as="font" type="font/woff" crossorigin>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135618960-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    /* Skills */
-    .skills-toggle { text-align:center; margin-bottom:1rem; }
-    .skills-toggle button {
-      padding:.6rem 1.2rem; margin:0 .4rem; border:none; background:var(--light);
-      color:var(--accent); font-weight:500; cursor:pointer;
-      transition:background .3s, color .3s;
-    }
-    .skills-toggle button.active { background:var(--accent); color:#fff; }
-    .skill-grid {
-      display:grid; gap:1rem; grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
-    }
-    .skill-card {
-      background:var(--light); border:1px solid var(--border);
-      border-radius:8px; padding:1rem; text-align:center;
-      box-shadow:0 4px 12px rgba(0,0,0,0.04);
-      transition:transform .3s, box-shadow .3s;
-    }
-    .skill-card:hover { transform:translateY(-4px); box-shadow:0 12px 24px rgba(0,0,0,0.08); }
+      gtag('config', 'UA-135618960-2');
+    </script>
 
-    /* Footer */
-    footer { text-align:center; padding:2rem; color:var(--secondary); }
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.4/css/all.min.css">
 
-    /* Responsive */
-    @media (max-width:768px){
-      .hero h1{ font-size:2rem; }
-      nav { top:.6rem; right:1rem; gap:.6rem; }
-      section { margin:0 1rem 3rem; padding:1.6rem; }
-    }
-  </style>
-</head>
-<body>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
 
-  <div class="hero">
-    <img src="NgSiEnJennifer-Profile.jpg" alt="Profile Picture">
-    <h1>Ng Si En Jennifer</h1>
-    <p>Robotics Systems Engineering Student | Admin &amp; Ops Experience</p>
-    <a href="resume.pdf" class="btn" target="_blank">📄 Download Resume</a>
-  </div>
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>Hi! I'm Ng Si En Jennifer, a Robotics Systems Engineering student at the Singapore Institute of Technology. With a strong foundation in industrial ops & customer service, I’m passionate about merging real-world systems with robotics solutions.</p>
-    </section>
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-    <section id="education">
-      <h2>Education</h2>
-      <ul>
-        <li><strong>SIT</strong> – Robotics Systems Engineering (2024–2028)</li>
-        <li><strong>Republic Polytechnic</strong> – Diploma in Industrial & Operations Management (2020–2023)</li>
-        <li><strong>Greenridge Secondary School</strong> – GCE ’O’ Levels (2016–2019)</li>
-      </ul>
-    </section>
-
-    <section id="experience">
-      <h2>Work Experience</h2>
-      <h3>Fraser & Neave — Temp Admin Assistant</h3>
-      <ul>
-        <li>Verified invoices & supported accurate data entry</li>
-        <li>Processed staff claims & monthly commissions</li>
-        <li>Performed scanning, tracking & audit documentation</li>
-      </ul>
-      <h3>BedandBasics — Operations Intern</h3>
-      <ul>
-        <li>Handled customer service via calls/chat/email</li>
-        <li>Managed orders, logistics, and showroom support</li>
-        <li>Assisted with livestream backend & QR label creation</li>
-      </ul>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>Systems Engineering Project</h3>
-          <p>Designed a miniature Changi Canopy Park arena to simulate robotic navigation, using SEBoK’s 5‑step Systems Approach and ROS1 on a LIMO robot for autonomous multi‑arena navigation.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skills-toggle">
-        <button onclick="toggleSkills('tech')" class="active">Technical</button>
-        <button onclick="toggleSkills('soft')">Soft</button>
-      </div>
-      <div id="tech" class="skill-grid">
-        <div class="skill-card">Python</div>
-        <div class="skill-card">C++</div>
-        <div class="skill-card">ROS1</div>
-        <div class="skill-card">Gazebo</div>
-        <div class="skill-card">Fusion 360</div>
-        <div class="skill-card">CAD</div>
-        <div class="skill-card">Git</div>
-        <div class="skill-card">GitHub</div>
-      </div>
-      <div id="soft" class="skill-grid" style="display:none;">
-        <div class="skill-card">Team Collaboration</div>
-        <div class="skill-card">Communication</div>
-        <div class="skill-card">Problem Solving</div>
-        <div class="skill-card">Adaptability</div>
-      </div>
-      <div style="margin-top:2rem;">
-        <strong>Languages:</strong>
-        <ul>
-          <li>English (Fluent)</li>
-          <li>Chinese (Conversational)</li>
-          <li>Tagalog (Basic)</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <ul>
-        <li>Email: <a href="mailto:jxnn19ng@gmail.com">jxnn19ng@gmail.com</a></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/jennifer-ng-si-en/" target="_blank">linkedin.com/in/jennifer-ng-si-en</a></li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>© 2025 Ng Si En Jennifer • All rights reserved.</footer>
-
-  <script>
-    // Scroll Animation
-    document.querySelectorAll('section').forEach(sec => {
-      new IntersectionObserver(entries => {
-        entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
-      }, { threshold:0.15 }).observe(sec);
-    });
-
-    // Nav Scroll Spy
-    const navLinks = document.querySelectorAll('nav a');
-    window.addEventListener('scroll', () => {
-      navLinks.forEach(link => {
-        const sec = document.querySelector(link.hash);
-        if (sec.getBoundingClientRect().top < 120 && sec.getBoundingClientRect().bottom > 120)
-          navLinks.forEach(l => l.classList.remove('active')), link.classList.add('active');
-      });
-    });
-
-    // Skills Toggle
-    function toggleSkills(type) {
-      document.getElementById('tech').style.display = type === 'tech' ? 'grid' : 'none';
-      document.getElementById('soft').style.display = type === 'soft' ? 'grid' : 'none';
-      document.querySelectorAll('.skills-toggle button').forEach(btn =>
-        btn.textContent.toLowerCase().includes(type) ? btn.classList.add('active') : btn.classList.remove('active')
-      );
-    }
-  </script>
-</body>
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
 </html>
