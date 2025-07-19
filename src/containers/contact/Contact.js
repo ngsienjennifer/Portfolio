@@ -3,8 +3,8 @@ import "./Contact.scss";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import {illustration, contactInfo} from "../../portfolio";
 import {Fade} from "react-reveal";
-import email from "../../assets/lottie/email";
-import DisplayLottie from "../../components/displayLottie/DisplayLottie";
+/*import email from "../../assets/lottie/email";
+import DisplayLottie from "../../components/displayLottie/DisplayLottie"; */
 import StyleContext from "../../contexts/StyleContext";
 
 export default function Contact() {
@@ -54,7 +54,23 @@ export default function Contact() {
           </div>
           <div className="contact-image-div">
             {illustration.animated ? (
-              <DisplayLottie animationData={email} />
+              // <DisplayLottie animationData={email} />
+              <img
+                src=""
+                onLoad={async (e) => {
+                  const res = await fetch("/profile.json");
+                  const json = await res.json();
+                  e.target.src = json.data.user.avatarUrl;
+                }}
+                alt="Profile"
+                className="profile-picture"
+                style={{
+                  borderRadius: "50%",
+                  width: "200px",
+                  height: "200px",
+                  objectFit: "cover",
+                }}
+              />     
             ) : (
               <img
                 alt="Man working"
