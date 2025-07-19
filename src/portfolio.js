@@ -47,10 +47,10 @@ const skillsSection = {
   title: "What I do",
   subTitle: "Robotics Systems Engineering student exploring technology and automation with operations and admin experience",
   skills: [
-    emoji("🤖") + " Currently studying robotics systems to understand automation and system integration",
-    emoji("📊") + " Skilled in operations, administration, logistics and project support",
-    emoji("💻") + " Familiar with C/C++, web development tools, and microcontroller environments (STM32)",
-    emoji("🎨") + " Experienced with tools like Canva, Tableau, Minitab, and AutoCAD"
+    emoji("🤖 Currently studying robotics systems to understand automation and system integration"),
+    emoji("📊 Skilled in operations, administration, logistics and project support"),
+    emoji("💻Familiar with C/C++, web development tools, and microcontroller environments (STM32)"),
+    emoji("🎨 Experienced with tools like Canva, Tableau, Minitab, and AutoCAD")
   ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
@@ -346,7 +346,7 @@ const resumeSection = {
   subtitle: "Feel free to download my resume",
 
   // Please Provide with Your Podcast embeded Link
-  display: false // Set false to hide this section, defaults to true
+  display: true // Set false to hide this section, defaults to true
 };
 
 const contactInfo = {
