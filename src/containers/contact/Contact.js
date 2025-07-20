@@ -62,8 +62,8 @@ export default function Contact() {
                 className="profile-picture"
                 style={{
                   borderRadius: "50%",
-                  width: "70px",
-                  height: "70px",
+                  width: "200px",
+                  height: "200px",
                   objectFit: "cover",
                 }}
               />   
