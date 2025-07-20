@@ -13,10 +13,9 @@ export default function Projects() {
   const [repo, setrepo] = useState([]);
   // todo: remove useContex because is not supported
   const {isDark} = useContext(StyleContext);
-  if (!openSource.display) return null;
-
   
   useEffect(() => {
+    if (!openSource.display) return null;
     const getRepoData = () => {
       fetch("/profile.json")
         .then(result => {
