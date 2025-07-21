@@ -15,7 +15,7 @@ Currently, I'm deepening my knowledge in robotics systems, exploring how automat
 
 📁 Project Structure
 This site is built using React, styled with SCSS, and configured for dynamic content via GitHub’s GraphQL API.
-
+'''
 graphql
 Copy
 Edit
@@ -30,6 +30,8 @@ src/
 ├── App.js / index.js            # React app entry point
 └── public/
     └── profile.json             # Auto-fetched GitHub data
+'''
+
 ✨ Key Features
 🎯 Clean & responsive React UI
 
